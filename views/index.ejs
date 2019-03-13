@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    #main{
+      border: 2px solid blue;
+      margin: 20px;
+      padding:20px;
+    }
+    h3{
+      display:inline-block;
+      margin-right: 50px;
+    }
+    h5{
+      display:inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <h3>All of our mongooses</h3>
+    <h5><a href="/mongooses/new">Add new mongoose</a></h5>
+    <% for(var i=0;i<all_mongooses.length;i++) { %>
+      <h6><%= all_mongooses[i].name %></h6>
+      <a href="mongooses/<%= all_mongooses[i]._id%>">show</a>
+      <a href="mongooses/edit/<%= all_mongooses[i]._id%>">edit</a>
+      <a href="mongooses/destroy/<%= all_mongooses[i]._id%>">delete</a>
+      <ul>
+        <li><%=all_mongooses[i].gender %></li>
+        <li><%=all_mongooses[i].age %></li>
+      </ul>
+      <hr>
+    <% } %>
+  </div>
+</body>
+</html>
